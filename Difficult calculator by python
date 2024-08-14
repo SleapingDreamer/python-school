@@ -1,0 +1,74 @@
+import math
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Ошибка: Деление на ноль!"
+    return x / y
+
+def power(x, y):
+    return math.pow(x, y)
+
+def sqrt(x):
+    if x < 0:
+        return "Ошибка: Невозможно извлечь корень из отрицательного числа!"
+    return math.sqrt(x)
+
+def factorial(x):
+    if x < 0:
+        return "Ошибка: Факториал отрицательного числа не определен!"
+    return math.factorial(int(x))
+
+def calculator():
+    print("Сложный калькулятор на Python")
+    print("-----------------------------")
+    print("Доступные операции:")
+    print("1. Сложение (+)")
+    print("2. Вычитание (-)")
+    print("3. Умножение (*)")
+    print("4. Деление (/)")
+    print("5. Возведение в степень (^)")
+    print("6. Квадратный корень (sqrt)")
+    print("7. Факториал (factorial)")
+    print("8. Завершить работу (exit)")
+
+    while True:
+        operation = input("\nВведите оператор или название операции: ")
+
+        if operation == 'exit':
+            print("Выход из программы...")
+            break
+
+        if operation == 'sqrt':
+            num = float(input("Введите число: "))
+            print(f"Результат: sqrt({num}) = {sqrt(num)}")
+        elif operation == 'factorial':
+            num = int(input("Введите целое число: "))
+            print(f"Результат: {num}! = {factorial(num)}")
+        else:
+            num1 = float(input("Введите первое число: "))
+            num2 = float(input("Введите второе число: "))
+
+            if operation == '+':
+                print(f"Результат: {num1} + {num2} = {add(num1, num2)}")
+            elif operation == '-':
+                print(f"Результат: {num1} - {num2} = {subtract(num1, num2)}")
+            elif operation == '*':
+                print(f"Результат: {num1} * {num2} = {multiply(num1, num2)}")
+            elif operation == '/':
+                print(f"Результат: {num1} / {num2} = {divide(num1, num2)}")
+            elif operation == '^':
+                print(f"Результат: {num1} ^ {num2} = {power(num1, num2)}")
+            else:
+                print("Ошибка: Неверный оператор или операция.")
+
+if __name__ == "__main__":
+    calculator()
